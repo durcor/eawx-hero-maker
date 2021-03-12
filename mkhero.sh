@@ -136,7 +136,7 @@ echo "Ability to use force powers in ground battles."
 # Support: Heal
 while [ "$force_sensitive" != "y" ] &&
 	[ "$force_sensitive" != "n" ]; do read -r force_sensitive; done
-echo "Are you stealthy?"
+echo "Are you stealthy? (y/n)"
 echo "Ability to go to enemy planets undetected."
 echo "Warning: Restricts ship type to Fighter."
 while [ "$stealthy" != "y" ] &&
@@ -163,6 +163,14 @@ if [ "$type" = "f" ]; then
 	# TODO: Add support for specifying fighter to use
 	true
 fi
+
+# Debug:
+echo "Species: $species"
+echo "Faction: $faction"
+echo "Name: $name"
+echo "Ship Name: $ship_name"
+
+# TODO: If this hero dies, the player loses.
 
 # Command tier levels inverse of current era (Start at 5, end at 1)
 # NR:
