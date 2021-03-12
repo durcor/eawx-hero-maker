@@ -1,0 +1,139 @@
+<UniqueUnit Name="Nantz_Independence">
+	<Variant_Of_Existing_Type>Home_One_Type</Variant_Of_Existing_Type>
+	<Text_ID>TEXT_UNIT_NANTZ</Text_ID>
+	<Encyclopedia_Text> 
+	TEXT_TOOLTIP_TRAITS 
+	TEXT_TOOLTIP_TRAIT_COMMAND2
+	TEXT_TOOLTIP_BIO
+	TEXT_TOOLTIP_NANTZ 
+	TEXT_TOOLTIP_COMMANDS 
+	TEXT_TOOLTIP_COMMAND_INDEPENDENCE
+	TEXT_TOOLTIP_SEPARATOR_STAT_BLOCK
+	TEXT_TOOLTIP_MC80COMMAND_HULL
+	TEXT_TOOLTIP_MC80COMMAND_SHIELD
+	TEXT_TOOLTIP_MC80COMMAND_MOVE 
+	TEXT_TOOLTIP_MC80COMMAND_SQUADRON
+	TEXT_TOOLTIP_MC80COMMAND_WEAP1
+	TEXT_TOOLTIP_MC80COMMAND_WEAP2 
+	TEXT_TOOLTIP_SEPARATOR_CAPABILITIES_BLOCK
+	TEXT_TOOLTIP_ORBITAL_BOMBARDMENT
+	TEXT_TOOLTIP_BOMBING_RUN 
+	</Encyclopedia_Text>
+	<Encyclopedia_Unit_Class> TEXT_ENCYCLOPEDIA_CLASS_FLEET_COMMANDER </Encyclopedia_Unit_Class>
+	<Is_Named_Hero>Yes</Is_Named_Hero>
+	<Icon_Name>i_button_nantz.tga</Icon_Name>
+	
+	<SpaceBehavior> ABILITY_COUNTDOWN, LURE, SPAWN_SQUADRON, SIMPLE_SPACE_LOCOMOTOR, POWERED, SHIELDED, SELECTABLE, TARGETING, REVEAL, HIDE_WHEN_FOGGED, UNIT_AI, DAMAGE_TRACKING, ION_STUN_EFFECT, NEBULA</SpaceBehavior>
+	<Lua_Script>CapitalHero</Lua_Script>
+	<Tech_Level>99</Tech_Level>
+	<Affiliation>Rebel</Affiliation>
+	
+	<CategoryMask> Capital |  AntiCapital | SpaceHero </CategoryMask>
+	
+	<Unit_Abilities_Data SubObjectList="Yes">
+		<!-- Primary ability -->
+		<Unit_Ability>
+			<Type>DEFEND</Type>
+			<Mod_Multiplier>WEAPON_DELAY_MULTIPLIER,	3.0f</Mod_Multiplier>
+			<Mod_Multiplier>SHIELD_REGEN_MULTIPLIER,	1.0f</Mod_Multiplier>
+			<Mod_Multiplier>SHIELD_REGEN_INTERVAL_MULTIPLIER,	0.10f</Mod_Multiplier> <!-- make it faster to recharge -->
+			<Mod_Multiplier>ENERGY_REGEN_INTERVAL_MULTIPLIER,	0.10f</Mod_Multiplier> <!-- make it faster to recharge -->
+			<Mod_Multiplier>ENERGY_REGEN_MULTIPLIER,	5.0f</Mod_Multiplier>
+			<Mod_Multiplier>SPEED_MULTIPLIER,			0.8f</Mod_Multiplier>
+			<Recharge_Seconds>20</Recharge_Seconds>
+			<Expiration_Seconds>15</Expiration_Seconds>
+	
+			<SFXEvent_GUI_Unit_Ability_Activated>Unit_Defend_Ackbar</SFXEvent_GUI_Unit_Ability_Activated>
+			<SFXEvent_GUI_Unit_Ability_Deactivated />
+			<Supports_Autofire>True</Supports_Autofire>
+		</Unit_Ability>
+		
+		<Unit_Ability>
+			<Type>LURE</Type>
+			
+			<Alternate_Name_Text>TEXT_TOOLTIP_ABILITY_AGGRESSIVENESS_NAME</Alternate_Name_Text>
+			<Alternate_Description_Text>TEXT_TOOLTIP_ABILITY_AGGRESSIVENESS_DESCRIPTION</Alternate_Description_Text>
+			<Alternate_Icon_Name>I_SA_FIRE_ENERGY_WEAPON.tga</Alternate_Icon_Name>
+			<!-- If you change this - please make sure you communicate the change to artists (to Mike specifically).
+				 Any change to this radius will require a manual adjustment to the particle effect. Thank you. -->
+			<Effective_Radius>1</Effective_Radius>
+			
+			<Target_Types />
+
+			<Recharge_Seconds>120</Recharge_Seconds>
+			<Expiration_Seconds>20</Expiration_Seconds>
+			
+			<Is_Pulsing>Yes</Is_Pulsing>
+			<Pulse_Frequency_Secs>0.5</Pulse_Frequency_Secs>
+			<Max_Number_Of_Pulses>40</Max_Number_Of_Pulses>
+			<Particle_Effect>Aggressiveness_Ability_Particle</Particle_Effect>
+
+			<Mod_Multiplier />
+			<Supports_Autofire>False</Supports_Autofire>
+		</Unit_Ability>
+		
+	</Unit_Abilities_Data>
+	
+	<Abilities SubObjectList="Yes">
+		<Combat_Bonus_Ability Name="Nantz_Self_Bonus">
+			<Activation_Style>Space_Automatic</Activation_Style>
+			<Unit_Strength_Category />
+			<Applicable_Unit_Categories />
+			<Applicable_Unit_Types> Nantz_Independence </Applicable_Unit_Types>
+			<Health_Bonus_Percentage>0.20</Health_Bonus_Percentage>
+			<Damage_Bonus_Percentage>0.0</Damage_Bonus_Percentage>
+			<Energy_Pool_Bonus_Percentage>0.0</Energy_Pool_Bonus_Percentage>
+			<Shield_Bonus_Percentage>0.0</Shield_Bonus_Percentage>
+			<Defense_Bonus_Percentage>0.0</Defense_Bonus_Percentage>
+			<Movement_Speed_Bonus_Percentage>0.0</Movement_Speed_Bonus_Percentage>
+			<Stacking_Category>1</Stacking_Category>
+		</Combat_Bonus_Ability>
+		
+		<Combat_Bonus_Ability Name="Nantz_Combat_Bonus">
+			<Activation_Style>Space_Automatic</Activation_Style>
+			<Unit_Strength_Category>All</Unit_Strength_Category>
+			<Applicable_Unit_Categories>All</Applicable_Unit_Categories>
+			<Applicable_Unit_Types />
+			<Excluded_Unit_Types> </Excluded_Unit_Types>
+			<Health_Bonus_Percentage>0.15</Health_Bonus_Percentage>
+			<Damage_Bonus_Percentage>0.15</Damage_Bonus_Percentage>
+			<Energy_Pool_Bonus_Percentage>0.0</Energy_Pool_Bonus_Percentage>
+			<Shield_Bonus_Percentage>0.15</Shield_Bonus_Percentage>
+			<Defense_Bonus_Percentage>0.15</Defense_Bonus_Percentage>
+			<Movement_Speed_Bonus_Percentage>0.10</Movement_Speed_Bonus_Percentage>
+			<Stacking_Category>0</Stacking_Category>
+		</Combat_Bonus_Ability>
+		
+		<Battlefield_Modifier_Ability Name="Nantz_FOW_Increase">
+			<Initially_Enabled>Yes</Initially_Enabled>
+			<Activation_Style>Space_Automatic</Activation_Style>
+			<FOW_Reveal_Range_Multiplier>1.15</FOW_Reveal_Range_Multiplier>
+			<Apply_To_All_Allies>Yes</Apply_To_All_Allies>
+			<Stacking_Category>0</Stacking_Category>
+		</Battlefield_Modifier_Ability>
+
+		<!-- <Tractor_Beam_Attack_Ability Name="MCHO_Tractor_Beam_Attack_Ability">
+			<Activation_Style> User_Input </Activation_Style>
+			<Applicable_Unit_Categories>Transport | Corvette | Frigate</Applicable_Unit_Categories>
+			<Applicable_Unit_Types>Millennium_Falcon</Applicable_Unit_Types>
+
+			<Activation_Min_Range>2</Activation_Min_Range>
+			<Activation_Max_Range>1500</Activation_Max_Range>
+
+			
+			<Target_Speed_Decrease_Percent>.98</Target_Speed_Decrease_Percent>
+			<Stacking_Category>0</Stacking_Category>
+		</Tractor_Beam_Attack_Ability> -->
+	</Abilities>
+	
+	<!--<MULTIPLAYER SKIRMISH VALUES BEGIN>-->  
+	<Tactical_Build_Cost_Multiplayer>14495</Tactical_Build_Cost_Multiplayer>
+	<Tactical_Build_Time_Seconds>64</Tactical_Build_Time_Seconds>
+	<Tactical_Build_Prerequisites>RC_Level_Five_Tech_Upgrade</Tactical_Build_Prerequisites>
+	<Tactical_Production_Queue>Tactical_Units</Tactical_Production_Queue>
+	<Build_Limit_Current_Per_Player>1</Build_Limit_Current_Per_Player>
+	<Build_Limit_Lifetime_Per_Player>1</Build_Limit_Lifetime_Per_Player>
+	<Build_Limit_Lifetime_For_All_Allies></Build_Limit_Lifetime_For_All_Allies>  
+	<!--<MULTIPLAYER SKIRMISH VALUES END>-->
+	
+</UniqueUnit>
